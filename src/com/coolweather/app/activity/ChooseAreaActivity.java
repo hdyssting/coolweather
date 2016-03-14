@@ -123,6 +123,7 @@ public class ChooseAreaActivity extends Activity {
 			titleText.setText(selectedCity.getCityName());
 			currentLevel = LEVEL_COUNTY;
 		} else {
+			//Log.d("MainActivity", selectedCity.getCityCode());
 			queryFromServer(selectedCity.getCityCode(), "county");
 		}
 	}
@@ -146,6 +147,7 @@ public class ChooseAreaActivity extends Activity {
 				} else if ("city".equals(type)) {
 					result = Utility.handleCitiesResponse(coolWeatherDB, response, selectedProvince.getId());
 				} else if ("county".equals(type)) {
+					//Log.d("MainActivity", "gone");
 					result = Utility.handleCountiesResponse(coolWeatherDB, response, selectedCity.getId());
 				}
 				if (result) {
@@ -160,7 +162,9 @@ public class ChooseAreaActivity extends Activity {
 							} else if ("city".equals(type)) {
 								queryCities();
 							} else if ("county".equals(type)) {
+								//Log.d("MainActivity", "Gone");
 								queryCounties();
+								//Log.d("MainActivity", "done");
 							}
 						}
 					});
